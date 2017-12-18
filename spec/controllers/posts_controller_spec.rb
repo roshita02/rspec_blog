@@ -16,12 +16,15 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "POST #create" do
-    context "with valid attributes" do
+    context "when attributes are valid" do
       it "creates a new post" do
-
+        expect {
+          post :create, params: { post: FactoryGirl.attributes_for(:post) }
+          }.to change(Post, :count).by(1)
       end
       it "redirects to root_path" do
-
+        post :create, params: { post: FactoryGirl.attributes_for(:post) }
+        expect(response).to redirect_to root_path
       end
     end
 
