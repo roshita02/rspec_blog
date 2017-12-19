@@ -36,6 +36,9 @@ gem 'factory_girl_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'
 end
